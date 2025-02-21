@@ -6,7 +6,7 @@ import SavedData from "./components/SavedData";
 import AboutUs from "./components/AboutUs";
 
 function App() {
-  const [activeTab, setActiveTab] = useState("Weather");
+  const [activeTab, setActiveTab] = useState(""); // Default to no active tab
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -19,14 +19,14 @@ function App() {
       case "About Us":
         return <AboutUs />;
       default:
-        return <Weather />;
+        return <p>Please select a tab to view content.</p>; // Placeholder when no tab is selected
     }
   };
 
   return (
     <div className="app-container">
       <header>
-        <h1>Wild Animal Detector</h1>
+        <h1> NatureWatch </h1>
       </header>
       <nav className="tab-nav">
         {["Weather", "Live Camera", "Saved Data", "About Us"].map((tab) => (

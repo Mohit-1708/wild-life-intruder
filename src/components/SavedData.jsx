@@ -8,7 +8,7 @@ const SavedData = () => {
 
   useEffect(() => {
     // Reference to the "animaldetection" node in your Realtime Database
-    const dataRef = ref(db, "animaldetection");
+    const dataRef = ref(db, "sensorData");
 
     // Listen for changes in the Realtime Database
     onValue(dataRef, (snapshot) => {
@@ -41,10 +41,10 @@ const SavedData = () => {
     <div className="saved-data">
       {data.length > 0 ? (
         <ul>
-          {data.map((item, index) => (
-            <li key={index}>
-              <strong>Animal:</strong> {item.animal} <br />
-              <strong>Detected at:</strong> {item.time}
+          {data.map((item, probability) => (
+            <li key={probability}>
+              <strong>Animal:</strong> {item.category} <br />
+              <strong>Detected at:</strong> {item.timestamp}
             </li>
           ))}
         </ul>
