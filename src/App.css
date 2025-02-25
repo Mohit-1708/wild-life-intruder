@@ -1,103 +1,191 @@
 /* General styles */
 body {
-    font-family: "Arial", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url(images/animalwali.jpg); /* Replace with your preferred nature image */
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff; /* Set text color to white for contrast */
+  animation: backgroundSlide 30s infinite ease-in-out; /* Apply background animation */
+}
+
+@keyframes backgroundSlide {
+  0% {
+    background-image: url('images/nilgai.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    
-    color: #fff; /* Set text color to white for contrast */
   }
-  
+  25% {
+    background-image: url('images/animalwali.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  50% {
+    background-image: url('images/zebra.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  75% {
+    background-image: url('images/elephant.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  100% {
+    background-image: url('images/nilgai.jpg'); /* Loop back to the first image */
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.app-container {
+  text-align: center;
+  padding: 20px;
+  backdrop-filter: blur(2px); /* Adds a subtle blur effect for readability */
+  background: transparent; /* Semi-transparent background for contrast */
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Header styles */
+header {
+  background: rgba(180, 87, 70, 0.8); /* Semi-transparent blue */
+  padding: 15px 0;
+  border-radius: 10px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Tab navigation styles */
+.tab-nav {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.tab-nav button {
+  background: rgba(255, 255, 255, 0.2);
+  width: 30vw;
+  height: 30vh;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
+}
+
+.tab-nav button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.active-tab {
+  background-color: rgba(70, 130, 180, 0.8);
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Tab content styles */
+.tab-content {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tab-content h2 {
+  color: #4682b4;
+}
+
+.weather, .live-camera, .saved-data, .about-us {
+  padding: 10px;
+  text-align: left;
+}
+
+iframe {
+  border: none;
+  border-radius: 8px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  /* Make app container full-width on smaller screens */
   .app-container {
-    text-align: center;
-    padding: 20px;
-    backdrop-filter: blur(5px); /* Adds a subtle blur effect for readability */
-    background: transparent; /* Semi-transparent background for contrast */
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 1200px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Header styles */
-  header {
-    background: rgba(180, 87, 70, 0.8); /* Semi-transparent blue */
-    padding: 15px 0;
-    border-radius: 10px;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 2rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  }
-  
-  /* Tab navigation styles */
-  .tab-nav {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-  }
-  
-  .tab-nav button {
-    background: rgba(255, 255, 255, 0.2);
-    width: 30vw;
-    height: 30vh;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    padding: 10px 20px;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    border-radius: 5px;
-  }
-  
-  .tab-nav button:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .active-tab {
-    background-color: rgba(70, 130, 180, 0.8);
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-  }
-  
-  /* Tab content styles */
-  .tab-content {
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-    color: #333;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .tab-content h2 {
-    color: #4682b4;
-  }
-  
-  .weather, .live-camera, .saved-data, .about-us {
+    max-width: 100%;
     padding: 10px;
-    text-align: left;
   }
-  
+
+  /* Adjust header padding and font size */
+  header {
+    padding: 10px 0;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Stack tab buttons vertically for smaller screens */
+  .tab-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Make buttons smaller for mobile */
+  .tab-nav button {
+    width: 80vw; /* Adjust to take up most of the screen width */
+    height: 20vh;
+    font-size: 14px;
+    padding: 10px;
+    margin: 5px 0;
+  }
+
+  /* Reduce the padding and text size in the tab content */
+  .tab-content {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .tab-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .weather, .live-camera, .saved-data, .about-us {
+    padding: 8px;
+  }
+
   iframe {
-    border: none;
-    border-radius: 8px;
+    width: 100%; /* Ensure iframe fits screen on smaller devices */
+    border-radius: 4px;
   }
-  
-  /* Mobile responsiveness */
-  @media (max-width: 768px) {
-    .tab-nav {
-      flex-direction: column;
-    }
-  
-    .tab-nav button {
-      margin: 5px 0;
-    }
+}
+
+/* Large Mobile or Tablets (portrait mode) */
+@media (max-width: 480px) {
+  /* Further optimize tab navigation */
+  .tab-nav button {
+    width: 90vw;
+    height: 18vh;
+    font-size: 12px;
+    padding: 8px;
   }
-  
+
+  .tab-content {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  .tab-content h2 {
+    font-size: 1.3rem;
+  }
+}
