@@ -4,14 +4,14 @@ import { getDatabase } from "firebase/database"; // Import Realtime Database fun
 
 // Your Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBwKM64DWBCVrlre6bHIkTWYHtydYt_mV4",
-  authDomain: "wildlife-animal-1c5cf.firebaseapp.com",
-  databaseURL: "https://wildlife-animal-1c5cf-default-rtdb.firebaseio.com",
-  projectId: "wildlife-animal-1c5cf",
-  storageBucket: "wildlife-animal-1c5cf.firebasestorage.app",
-  messagingSenderId: "62840922646",
-  appId: "1:62840922646:web:4f1e1d94eb23e8b9860b37",
-  measurementId: "G-7LSYN85845"
+  apiKey: "AIzaSyDbY20hFUkjoc-aGQN-sjMGLoqcTMjQPIk",
+  authDomain: "wild-life-intruder.firebaseapp.com",
+  databaseURL: "https://wild-life-intruder-default-rtdb.firebaseio.com",
+  projectId: "wild-life-intruder",
+  storageBucket: "wild-life-intruder.firebasestorage.app",
+  messagingSenderId: "19706664116",
+  appId: "1:19706664116:web:ce0d087ef2df051c0433e1",
+  measurementId: "G-LJ4KLG13S2"
 };
 
 // Initialize Firebase
