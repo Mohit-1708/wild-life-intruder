@@ -32,6 +32,7 @@ const Login = ({ setIsAuthenticated }) => {
   return (
     <div className="login-container">
       <div className="login-box">
+        <h2>Self-Powered WildLife Intruder </h2>
         <h2 className="login-title">{isRegister ? "Register" : "Login"}</h2>
         <form className="login-form" onSubmit={handleSubmit}>
           {isRegister && (

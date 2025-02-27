@@ -7,7 +7,7 @@ const SavedData = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Reference to the "animaldetection" node in your Realtime Database
+    // Reference to the "sensorData" node in your Realtime Database
     const dataRef = ref(db, "sensorData");
 
     // Listen for changes in the Realtime Database
@@ -15,23 +15,22 @@ const SavedData = () => {
       const value = snapshot.val(); // Get the data from the snapshot
 
       if (value) {
-        // If data exists, convert the object to an array using Object.values
+        // Convert object to an array
         const dataArray = Object.values(value);
-        setData(dataArray); // Set the data to state
+        setData(dataArray);
       } else {
         console.log("No data available.");
-        setData([]); // If no data, set an empty array
+        setData([]);
       }
 
-      setLoading(false); // Stop loading once the data is fetched
+      setLoading(false);
     });
 
-    // Clean up the listener when the component unmounts
     return () => {
       setData([]);
       setLoading(true);
     };
-  }, []); // Empty dependency array ensures this only runs once on mount
+  }, []);
 
   if (loading) {
     return <p>Loading saved data...</p>;
@@ -41,10 +40,15 @@ const SavedData = () => {
     <div className="saved-data">
       {data.length > 0 ? (
         <ul>
-          {data.map((item, probability) => (
-            <li key={probability}>
+          {data.map((item, index) => (
+            <li key={index} style={{ marginBottom: "20px" }}>
               <strong>Animal:</strong> {item.category} <br />
-              <strong>Detected at:</strong> {item.timestamp}
+              <strong>Detected at:</strong> {item.timestamp} <br />
+              {item.imageUrl ? (
+                <img src={item.imageUrl} alt={item.category} style={{ width: "200px", height: "auto", marginTop: "10px" }} />
+              ) : (
+                <p>No image available</p>
+              )}
             </li>
           ))}
         </ul>

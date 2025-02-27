@@ -33,7 +33,7 @@ function App() {
       ) : (
         <>
           <header>
-            <h1> NatureWatch </h1>
+            <h1> Self-Power WildLife Intruder </h1>
           </header>
           <nav className="tab-nav">
             {["Weather", "Live Camera", "Saved Data", "About Us"].map((tab) => (
